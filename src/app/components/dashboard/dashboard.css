@@ -1,0 +1,144 @@
+/* Custom CSS for Dashboard component */
+
+.bg-gradient-hero {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
+}
+
+.bg-primary {
+  background-color: #1e3a8a;
+}
+
+.bg-accent {
+  background-color: #10b981;
+}
+
+.text-accent {
+  color: #10b981;
+}
+
+.text-primary {
+  color: #1e3a8a;
+}
+
+.text-primary-foreground {
+  color: #ffffff;
+}
+
+.bg-accent\/20 {
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+.border-accent\/30 {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.bg-accent\/15 {
+  background-color: rgba(16, 185, 129, 0.15);
+}
+
+.bg-accent\/10 {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.bg-primary\/10 {
+  background-color: rgba(30, 58, 138, 0.1);
+}
+
+.bg-primary\/95 {
+  background-color: rgba(30, 58, 138, 0.95);
+}
+
+.border-primary\/20 {
+  border-color: rgba(30, 58, 138, 0.2);
+}
+
+.bg-secondary\/30 {
+  background-color: rgba(241, 245, 249, 0.3);
+}
+
+.bg-card {
+  background-color: #ffffff;
+}
+
+.border-border {
+  border-color: #e2e8f0;
+}
+
+.text-foreground {
+  color: #1e293b;
+}
+
+.text-muted-foreground {
+  color: #64748b;
+}
+
+.shadow-glow-accent {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+/* Animation classes */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-1000 {
+  animation-delay: 1000ms;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+/* Responsive utilities */
+@media (min-width: 640px) {
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .md\:flex {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .lg\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+  
+  .lg\:justify-end {
+    justify-content: flex-end;
+  }
+}
+

@@ -1,0 +1,89 @@
+/* Custom CSS for About component */
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+.bg-gradient-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.shadow-glow-primary {
+  box-shadow: 0 0 20px rgba(30, 58, 138, 0.3);
+}
+
+.bg-primary {
+  background-color: #1e3a8a;
+}
+
+.bg-accent {
+  background-color: #10b981;
+}
+
+.text-primary {
+  color: #1e3a8a;
+}
+
+.text-accent {
+  color: #10b981;
+}
+
+.text-primary-foreground {
+  color: #ffffff;
+}
+
+.text-foreground {
+  color: #1e293b;
+}
+
+.text-muted-foreground {
+  color: #64748b;
+}
+
+.bg-primary\/10 {
+  background-color: rgba(30, 58, 138, 0.1);
+}
+
+.bg-accent\/10 {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.border-border {
+  border-color: #e2e8f0;
+}
+
+.border-border\/50 {
+  border-color: rgba(226, 232, 240, 0.5);
+}
+
+.border-primary\/50 {
+  border-color: rgba(30, 58, 138, 0.5);
+}
+
+.border-accent\/50 {
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+.hover\:border-primary\/50:hover {
+  border-color: rgba(30, 58, 138, 0.5);
+}
+
+.hover\:border-accent\/50:hover {
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+.hover\:bg-primary\/90:hover {
+  background-color: rgba(30, 58, 138, 0.9);
+}
+
+/* Responsive utilities */
+@media (min-width: 1024px) {
+  .lg\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+  
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+

@@ -1,0 +1,26 @@
+/* Custom CSS for NotFound component */
+
+.bg-primary {
+  background-color: #1e3a8a;
+}
+
+.text-primary {
+  color: #1e3a8a;
+}
+
+.text-primary-foreground {
+  color: #ffffff;
+}
+
+.text-foreground {
+  color: #1e293b;
+}
+
+.text-muted-foreground {
+  color: #64748b;
+}
+
+.hover\:bg-primary\/90:hover {
+  background-color: rgba(30, 58, 138, 0.9);
+}
+
