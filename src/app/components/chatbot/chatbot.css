@@ -1,0 +1,405 @@
+/* Chatbot Container */
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Toggle Button */
+.chatbot-toggle {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+.chatbot-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.chatbot-toggle.minimized {
+  border-radius: 50%;
+}
+
+.toggle-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.chat-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.chat-text {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* Configuration Toggle */
+.config-toggle {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.config-toggle:hover {
+  background: white;
+  transform: scale(1.05);
+}
+
+/* Chat Window */
+.chat-window {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 350px;
+  height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.chat-window.with-config {
+  right: 320px;
+}
+
+#n8n-chat {
+  width: 100%;
+  height: 100%;
+}
+
+/* Loading and Disabled States */
+.loading-chat, .disabled-chat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #666;
+  text-align: center;
+  padding: 20px;
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.disabled-chat button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.disabled-chat button:hover {
+  background: #5a6fd8;
+}
+
+/* Configuration Panel */
+.config-panel {
+  position: absolute;
+  bottom: 80px;
+  right: 70px;
+  width: 300px;
+  max-height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.config-panel.open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.config-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.config-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.close-config {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #666;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.close-config:hover {
+  background: #e9ecef;
+}
+
+.config-content {
+  padding: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.config-item {
+  margin-bottom: 20px;
+}
+
+.config-item label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.config-item input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.config-item input[type="text"]:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.config-item small {
+  display: block;
+  margin-top: 4px;
+  color: #666;
+  font-size: 12px;
+}
+
+/* Checkbox */
+.checkbox-label {
+  display: flex !important;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0 !important;
+}
+
+.checkbox-label input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark {
+  background: #667eea;
+  border-color: #667eea;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Input Group */
+.input-group {
+  display: flex;
+  gap: 8px;
+}
+
+.input-group input {
+  flex: 1;
+}
+
+.test-btn {
+  padding: 8px 16px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.test-btn:hover {
+  background: #218838;
+}
+
+/* Messages List */
+.messages-list {
+  margin-bottom: 12px;
+}
+
+.message-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #dc3545;
+  padding: 2px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.remove-btn:hover {
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.add-message {
+  display: flex;
+  gap: 8px;
+}
+
+.add-message input {
+  flex: 1;
+}
+
+.add-btn {
+  width: 32px;
+  height: 32px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+  background: #5a6fd8;
+}
+
+/* Config Actions */
+.config-actions {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e9ecef;
+}
+
+.reset-btn {
+  width: 100%;
+  padding: 10px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.reset-btn:hover {
+  background: #5a6268;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chatbot-container {
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .chat-window {
+    width: calc(100vw - 20px);
+    max-width: 350px;
+    right: -10px;
+  }
+  
+  .config-panel {
+    width: calc(100vw - 40px);
+    max-width: 300px;
+    right: -10px;
+  }
+  
+  .chat-window.with-config {
+    right: -10px;
+    bottom: 180px;
+  }
+}

@@ -1,0 +1,46 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="url(#gradient4)"/>
+  <defs>
+    <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Chatbot Interface -->
+  <g transform="translate(50, 40)">
+    <!-- Chat window -->
+    <rect x="25" y="20" width="250" height="160" rx="15" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+    <!-- Chat messages -->
+    <!-- User message -->
+    <rect x="150" y="40" width="110" height="25" rx="12" fill="rgba(255,255,255,0.3)"/>
+    <text x="205" y="56" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">¿Cómo puedo ayudarte?</text>
+    <!-- Bot message -->
+    <rect x="40" y="75" width="120" height="25" rx="12" fill="rgba(255,255,255,0.5)"/>
+    <text x="100" y="91" text-anchor="middle" fill="rgba(0,0,0,0.8)" font-family="Arial, sans-serif" font-size="10">Hola! Soy tu asistente IA</text>
+    <!-- User message -->
+    <rect x="140" y="110" width="120" height="25" rx="12" fill="rgba(255,255,255,0.3)"/>
+    <text x="200" y="126" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">Necesito información</text>
+    <!-- Bot message with thinking -->
+    <rect x="40" y="145" width="140" height="25" rx="12" fill="rgba(255,255,255,0.5)"/>
+    <text x="110" y="161" text-anchor="middle" fill="rgba(0,0,0,0.8)" font-family="Arial, sans-serif" font-size="10">Procesando...</text>
+    <!-- Thinking dots -->
+    <circle cx="190" cy="157" r="2" fill="rgba(255,255,255,0.8)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="157" r="2" fill="rgba(255,255,255,0.8)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="210" cy="157" r="2" fill="rgba(255,255,255,0.8)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Bot avatar -->
+    <circle cx="150" cy="210" r="20" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+    <circle cx="145" cy="205" r="3" fill="rgba(255,255,255,0.8)"/>
+    <circle cx="155" cy="205" r="3" fill="rgba(255,255,255,0.8)"/>
+    <path d="M142 215Q150 220 158 215" stroke="rgba(255,255,255,0.8)" stroke-width="2" fill="none"/>
+  </g>
+  <!-- Title overlay -->
+  <rect x="0" y="240" width="400" height="60" fill="rgba(0,0,0,0.6)"/>
+  <text x="200" y="265" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Chatbot Inteligente</text>
+  <text x="200" y="285" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="12">Asistente Virtual IA</text>
+</svg>

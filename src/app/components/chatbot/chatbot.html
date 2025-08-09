@@ -1,0 +1,147 @@
+<div class="chatbot-container">
+  <!-- Chatbot Toggle Button -->
+  <div class="chatbot-toggle" 
+       [class.minimized]="isMinimized"
+       (click)="toggleChatbot()">
+    <div class="toggle-content">
+      <div *ngIf="isMinimized" class="chat-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          <path d="M8 9h8M8 13h6"/>
+        </svg>
+        <span class="chat-text">Chat</span>
+      </div>
+      <div *ngIf="!isMinimized" class="close-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Configuration Button -->
+  <div class="config-toggle" 
+       *ngIf="!isMinimized"
+       (click)="toggleConfig()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="3"/>
+      <path d="m12 1 1.73 4.84L19 7.64l-2.73 2.73L17 15l-4.84-1.73L10.36 19l-2.73-2.73L3 17l1.73-4.84L1 10.36l2.73-2.73L3 3l4.84 1.73z"/>
+    </svg>
+  </div>
+
+  <!-- Configuration Panel -->
+  <div class="config-panel" 
+       *ngIf="isConfigOpen && !isMinimized"
+       [class.open]="isConfigOpen">
+    <div class="config-header">
+      <h3>Configuración del Chatbot</h3>
+      <button (click)="toggleConfig()" class="close-config">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="config-content">
+      <!-- Enable/Disable -->
+      <div class="config-item">
+        <label class="checkbox-label">
+          <input type="checkbox" 
+                 [checked]="config.enabled" 
+                 (change)="toggleEnabled()">
+          <span class="checkmark"></span>
+          Chatbot habilitado
+        </label>
+      </div>
+
+      <!-- Webhook URL -->
+      <div class="config-item">
+        <label>URL del Webhook n8n:</label>
+        <div class="input-group">
+          <input type="text" 
+                 [value]="config.webhookUrl"
+                 (input)="updateWebhookUrl($any($event.target).value)"
+                 placeholder="http://localhost:5678/webhook/...">
+          <button (click)="testConnection()" class="test-btn">Test</button>
+        </div>
+        <small>URL del webhook de tu flujo n8n</small>
+      </div>
+
+      <!-- Title -->
+      <div class="config-item">
+        <label>Título:</label>
+        <input type="text" 
+               [value]="config.title"
+               (input)="updateTitle($any($event.target).value)"
+               placeholder="Título del chatbot">
+      </div>
+
+      <!-- Subtitle -->
+      <div class="config-item">
+        <label>Subtítulo:</label>
+        <input type="text" 
+               [value]="config.subtitle"
+               (input)="updateSubtitle($any($event.target).value)"
+               placeholder="Subtítulo del chatbot">
+      </div>
+
+      <!-- Input Placeholder -->
+      <div class="config-item">
+        <label>Placeholder del input:</label>
+        <input type="text" 
+               [value]="config.inputPlaceholder"
+               (input)="updateInputPlaceholder($any($event.target).value)"
+               placeholder="Placeholder del input">
+      </div>
+
+      <!-- Initial Messages -->
+      <div class="config-item">
+        <label>Mensajes iniciales:</label>
+        <div class="messages-list">
+          <div *ngFor="let message of config.initialMessages; let i = index" class="message-item">
+            <span>{{ message }}</span>
+            <button (click)="removeInitialMessage(i)" class="remove-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="add-message">
+          <input type="text" 
+                 #newMessage 
+                 placeholder="Nuevo mensaje inicial"
+                 (keydown.enter)="addInitialMessage(newMessage.value); newMessage.value = ''">
+          <button (click)="addInitialMessage(newMessage.value); newMessage.value = ''" class="add-btn">+</button>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="config-actions">
+        <button (click)="resetConfig()" class="reset-btn">Restaurar por defecto</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Container -->
+  <div class="chat-window" 
+       *ngIf="!isMinimized && config.enabled"
+       [class.with-config]="isConfigOpen">
+    <div id="n8n-chat"></div>
+    
+    <!-- Loading State -->
+    <div *ngIf="!isChatbotLoaded" class="loading-chat">
+      <div class="loading-spinner"></div>
+      <p>Cargando chatbot...</p>
+    </div>
+    
+    <!-- Disabled State -->
+    <div *ngIf="!config.enabled" class="disabled-chat">
+      <p>Chatbot deshabilitado</p>
+      <button (click)="toggleConfig()">Configurar</button>
+    </div>
+  </div>
+</div>

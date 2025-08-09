@@ -26,11 +26,11 @@ export class ProjectsComponent implements OnInit {
     this.error = false;
     
     this.projectsService.getProjects().subscribe({
-      next: (data) => {
+      next: (data: Project[]) => {
         this.projects = data;
         this.loading = false;
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('Error loading projects:', error);
         this.error = true;
         this.loading = false;
@@ -38,8 +38,8 @@ export class ProjectsComponent implements OnInit {
     });
   }
 
-  getStatusColor(status: string): string {
-    switch (status.toLowerCase()) {
+  getStatusColor(estado: string): string {
+    switch (estado.toLowerCase()) {
       case 'completado':
         return 'bg-green-100 text-green-800 border-green-200';
       case 'en progreso':
@@ -53,8 +53,8 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
-  getStatusText(status: string): string {
-    switch (status.toLowerCase()) {
+  getStatusText(estado: string): string {
+    switch (estado.toLowerCase()) {
       case 'completado':
         return 'Completado';
       case 'en progreso':
@@ -64,7 +64,7 @@ export class ProjectsComponent implements OnInit {
       case 'pendiente':
         return 'Pendiente';
       default:
-        return status;
+        return estado;
     }
   }
 

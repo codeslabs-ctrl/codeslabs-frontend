@@ -1,0 +1,27 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="url(#gradient1)"/>
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007BF0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00C851;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- E-commerce icons -->
+  <g transform="translate(50, 50)">
+    <!-- Shopping cart -->
+    <path d="M60 80L80 40H280L300 80H60Z" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+    <circle cx="100" cy="120" r="15" fill="rgba(255,255,255,0.8)"/>
+    <circle cx="260" cy="120" r="15" fill="rgba(255,255,255,0.8)"/>
+    <!-- Products -->
+    <rect x="120" y="90" width="40" height="40" rx="8" fill="rgba(255,255,255,0.6)"/>
+    <rect x="170" y="90" width="40" height="40" rx="8" fill="rgba(255,255,255,0.6)"/>
+    <rect x="220" y="90" width="40" height="40" rx="8" fill="rgba(255,255,255,0.6)"/>
+    <!-- AI Brain symbol -->
+    <circle cx="200" cy="180" r="30" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+    <path d="M185 170Q200 160 215 170Q210 185 200 180Q190 185 185 170Z" fill="rgba(255,255,255,0.8)"/>
+  </g>
+  <!-- Title overlay -->
+  <rect x="0" y="240" width="400" height="60" fill="rgba(0,0,0,0.6)"/>
+  <text x="200" y="265" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">E-commerce Platform</text>
+  <text x="200" y="285" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="12">Plataforma con IA</text>
+</svg>
